@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Assets.at(path="/public", file="streaming.html")
+POST    /listTweets                 controllers.TwitterController.listTweets
+POST    /listWordCount              controllers.TwitterController.listWordCount
+POST    /create                     controllers.TwitterController.create
+POST    /createkeys                 controllers.TwitterController.createkeys
+GET     /loadtimeline               controllers.TwitterController.loadtimeline
+GET     /tweets/:keywords           controllers.TwitterController.filteredTweets(keywords:String)
+GET     /randomtweets               controllers.TwitterController.randomtweets
+
+
+GET     /keymanager                 controllers.Assets.at(path="/public", file="keymanager.html")
+GET     /streaming                  controllers.Assets.at(path="/public", file="streaming.html")
+GET     /timeline                   controllers.Assets.at(path="/public", file="timeline.html")
+GET     /wordfrequency              controllers.Assets.at(path="/public", file="wordfrequency.html")
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
